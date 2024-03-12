@@ -11,7 +11,7 @@ public class ServicoDePagamentoOnline {
 
 // TODO realiza outras lógicas para efetuar o pagamento ao estabelecimento
 
-		return new Recibo(cartao.obterTitular(), "Pagamento", valor);
+		return new Recibo(cartao.getTitular(), "Pagamento", valor);
 	}
 
 }

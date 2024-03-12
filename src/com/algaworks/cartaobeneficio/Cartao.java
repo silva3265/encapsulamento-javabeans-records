@@ -7,34 +7,46 @@ public class Cartao {
 
 	private String titular;
 	private double saldo;
+	private boolean ativo;
+
+	public Cartao() {
+	}
 
 	public Cartao(String titular) {
 		this.titular = titular;
 	}
-	
-	public String obterTitular() {
-        return titular;
-    }
 
-    public double obterSaldo() {
-        return saldo;
-    }
+	public boolean isAtivo() {
+		return ativo;
+	}
 
-    public void debitar(double valorDebito) {
-        if (obterSaldo() < valorDebito) {
-            throw new RuntimeException("Saldo insuficiente para pagamento");
-        }
+	public String getTitular() {
+		return titular;
+	}
 
-        saldo -= valorDebito;
-    }
+	public void setTitular(String titular) {
+		this.titular = titular;
+	}
 
-    public void depositar(double valorDeposito) {
-        if (valorDeposito < VALOR_MINIMO_DEPOSITO) {
-            throw new IllegalArgumentException(
-                    String.format("Valor de depósito não pode ser menor que %.2f", Cartao.VALOR_MINIMO_DEPOSITO));
-        }
+	public double getSaldo() {
+		return saldo;
+	}
 
-        saldo += valorDeposito - TARIFA_DEPOSITO;
-    }
+	public void debitar(double valorDebito) {
+		if (getSaldo() < valorDebito) {
+			throw new RuntimeException("Saldo insuficiente para pagamento");
+		}
+
+		saldo -= valorDebito;
+	}
+
+	public void depositar(double valorDeposito) {
+		if (valorDeposito < VALOR_MINIMO_DEPOSITO) {
+			throw new IllegalArgumentException(
+					String.format("Valor de depósito não pode ser menor que %.2f", Cartao.VALOR_MINIMO_DEPOSITO));
+		}
+
+		saldo += valorDeposito - TARIFA_DEPOSITO;
+	}
 
 }
