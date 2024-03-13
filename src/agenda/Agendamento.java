@@ -1,17 +1,23 @@
 package agenda;
 
+import horario.Horario;
+
 public class Agendamento {
 
-	private final Horario horario;
+	private Horario horario;
 	private String descricao;
 
 	public Agendamento(Horario horario, String descricao) {
-		this.horario = new Horario(horario.getHora(), horario.getMinuto());
+		this.horario = horario;
 		this.descricao = descricao;
 	}
 
 	public Horario getHorario() {
-		return new Horario(horario.getHora(), horario.getMinuto());
+		return horario;
+	}
+
+	public void setHorario(Horario horario) {
+		this.horario = horario;
 	}
 
 	public String getDescricao() {
